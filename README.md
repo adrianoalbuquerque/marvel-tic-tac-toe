@@ -35,6 +35,6 @@ Este projeto foi gerado com  [Angular CLI](https://github.com/angular/angular-cl
 3. O objetivo do jogo é conseguir três marcas em sequência (horizontal, vertical ou diagonal) antes do seu oponente.
 4. Vencedores e empates serão automaticamente detectados pelo aplicativo.
 
-Clique aqui e acesse [Marveltic-tac-toe](https://marvel-tic-tac-toe.vercel.app/).
+Clique aqui e acesse [Marvel tic-tac-toe](https://marvel-tic-tac-toe.vercel.app/).
 
 Aproveite o Marvel Tic-Tac-Toe!
