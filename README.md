@@ -1,6 +1,6 @@
 # Marvel Tic-Tac-Toe
 
-##Descrição:
+## Descrição:
 
 O Marvel Tic-Tac-Toe é um aplicativo Angular que implementa o clássico jogo da velha com a temática dos personagens da Marvel. O projeto oferece uma interface interativa e amigável, permitindo que os jogadores se divirtam enquanto testam suas habilidades estratégicas.
 
