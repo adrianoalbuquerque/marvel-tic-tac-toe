@@ -1,28 +1,40 @@
-# MarvelTicTacToe
+# Marvel Tic-Tac-Toe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
+## Descrição:
 
-## Development server
+O Marvel Tic-Tac-Toe é um aplicativo Angular que implementa o clássico jogo da velha com a temática dos personagens da Marvel. O projeto oferece uma interface interativa e amigável, permitindo que os jogadores se divirtam enquanto testam suas habilidades estratégicas.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Este projeto foi gerado com  [Angular CLI](https://github.com/angular/angular-cli) na versão 14.0.1.
 
-## Code scaffolding
+## Tecnologias Utilizadas:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 14
+- TypeScript
+- SCSS
+- HTML
 
-## Build
+## Pré-requisitos:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Node.js 16.x
+- npm ou yarn
 
-## Running unit tests
+## Instalação
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone o repositório: `https://github.com/adrianoalbuquerque/marvel-tic-tac-toe.git`.
 
-## Running end-to-end tests
+2. Acesse o diretório do projeto: `cd marvel-tic-tac-toe`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. Instale as dependências: `npm install || yarn`.
 
-## Further help
+4. Execute o aplicativo: `ng serve`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# marvel-tic-tac-toe
+## Uso
+
+1. O aplicativo será aberto automaticamente em http://localhost:4200 no seu navegador.
+2. Selecione os seus personagens e utilize os botões para marcar as posições no tabuleiro.
+3. O objetivo do jogo é conseguir três marcas em sequência (horizontal, vertical ou diagonal) antes do seu oponente.
+4. Vencedores e empates serão automaticamente detectados pelo aplicativo.
+
+Clique aqui e acesse [Marvel tic-tac-toe](https://marvel-tic-tac-toe.vercel.app/).
+
+Aproveite o Marvel Tic-Tac-Toe!
