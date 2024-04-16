@@ -6,17 +6,17 @@ O Marvel Tic-Tac-Toe é um aplicativo Angular que implementa o clássico jogo da
 
 Este projeto foi gerado com  [Angular CLI](https://github.com/angular/angular-cli) na versão 14.0.1.
 
-##Tecnologias Utilizadas:
+## Tecnologias Utilizadas:
 
--Angular 14
--TypeScript
--SCSS
--HTML
+- Angular 14
+- TypeScript
+- SCSS
+- HTML
 
-##Pré-requisitos:
+## Pré-requisitos:
 
--Node.js 16.x
--npm ou yarn
+- Node.js 16.x
+- npm ou yarn
 
 ## Instalação
 
