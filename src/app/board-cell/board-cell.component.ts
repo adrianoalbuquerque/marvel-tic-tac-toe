@@ -34,7 +34,7 @@ export class BoardCellComponent implements OnInit {
 
   @Input('clearWinner') set setClearWinner(value: boolean) {
     this.clearWinner = value;
-    if (value) {
+    if (!value) {
       this.win = '';
     }
   }
