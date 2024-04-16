@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Divide o container em 3 colunas iguais */
+  gap: 10px; /* Espaço entre as colunas */
+}
+
+.item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  border-radius: 12px;
+  #vs {
+    margin-top: 60px;;
+  }
+}

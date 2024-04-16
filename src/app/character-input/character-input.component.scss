@@ -1,0 +1,25 @@
+div {
+  margin-bottom: 20px;
+
+  label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  input[type="text"] {
+    width: 30%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+}
+

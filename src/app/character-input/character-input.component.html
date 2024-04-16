@@ -1,0 +1,10 @@
+<div>
+  <label for="characterName">{{label}}:</label>
+  <input type="text" id="characterName" [(ngModel)]="characterName" (blur)="onInputChange()">
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</div>
+
+<app-character-thumbnail
+  [hero]="hero"
+  [characterName]="characterName">
+</app-character-thumbnail>
