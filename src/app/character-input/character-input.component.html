@@ -1,6 +1,6 @@
 <div>
   <label for="characterName">{{label}}:</label>
-  <input type="text" id="characterName" [(ngModel)]="characterName" (blur)="onInputChange()">
+  <input type="text" id="characterName" [(ngModel)]="characterName" (blur)="onInputChange()" [disabled]="disabled">
   <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 </div>
 

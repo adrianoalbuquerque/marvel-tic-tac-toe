@@ -11,12 +11,14 @@ export class CharacterInputComponent implements OnInit {
   characterName: string = '';
   errorMessage: string = '';
   hero: string = '';
+  disabled: boolean = false;
 
   @Input() label: string = "";
   @Input('error') set setError(value: string) {
     this.errorMessage = value;
     if (value !== "") {
       this.characterName = "";
+      this.disabled = false;
     }
   }
   @Output() nameEntered = new EventEmitter<string>();
@@ -37,9 +39,11 @@ export class CharacterInputComponent implements OnInit {
           this.hero = thumbnail;
 
           this.nameEntered.emit(this.characterName);
+          this.disabled = true;
         },
         error => {
           this.errorMessage = error;
+          this.disabled = false;
         })
     }
   }
