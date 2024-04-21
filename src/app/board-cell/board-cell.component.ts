@@ -27,6 +27,7 @@ export class BoardCellComponent implements OnInit {
         this.scoreboard2++;
         this.win = value.name;
       } else {
+        this.win = "Empate!";
         this.noMove++;
       }
     }

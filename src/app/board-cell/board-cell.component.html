@@ -14,5 +14,6 @@
     <h1>{{scoreboard2}}</h1></div>
 </div>
 <div>
-  <h1 *ngIf="clearWinner">{{win}} VENCEU 🎮</h1>
+  <h1 *ngIf="clearWinner && win !== 'Empate!'">{{win}} VENCEU 🎮</h1>
+  <h1 *ngIf="clearWinner && win === 'Empate!'">{{win}}</h1>
 </div>
