@@ -93,7 +93,6 @@ export class BoardComponent implements OnInit {
   }
 
   endGame(player: any) {
-    console.log(player)
     this.count++;
     // alert(this.currentPlayer.name + ' é o vencedor 🎈🎉🐱‍💻');
     this.player_1 = new Player(this.player1);
