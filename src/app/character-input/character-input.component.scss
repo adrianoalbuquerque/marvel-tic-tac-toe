@@ -15,6 +15,13 @@ div {
     text-transform: uppercase;
   }
 
+  input[type="text"]:disabled {
+    cursor: no-drop;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+    font-style: italic;
+  }
+
   .error-message {
     color: red;
     font-size: 14px;
@@ -22,4 +29,3 @@ div {
   }
 
 }
-

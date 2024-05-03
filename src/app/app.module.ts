@@ -1,3 +1,4 @@
+import { AppRoutingModulesRoutes } from './app-routing-modules';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,6 +10,7 @@ import { CharacterThumbnailComponent } from './character-thumbnail/character-thu
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MarvelService } from './service/service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { HttpClientModule } from '@angular/common/http';
     BoardComponent,
     BoardCellComponent,
     CharacterInputComponent,
-    CharacterThumbnailComponent
+    CharacterThumbnailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModulesRoutes
   ],
   providers: [
     MarvelService
