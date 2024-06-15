@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Md5 } from 'ts-md5';
 import { Observable, catchError, map } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MarvelService {
 
-  private apiUrl = 'https://gateway.marvel.com/v1/public';
-  private apiKey = '930d72c86a4da58ede8cc1b610d1f89b';
-  private privateKey = '27bfc3d97a43cbab95080d437c15fde16271fc0e';
+  private apiUrl = environment.apiUrl;
+  private apiKey = environment.apiKey;
+  private privateKey = environment.privateKey;
 
   constructor(private http: HttpClient) { }
 
