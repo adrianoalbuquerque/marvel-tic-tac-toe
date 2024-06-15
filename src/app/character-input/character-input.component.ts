@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MarvelService } from '../service/service.service';
+import { Subscription } from "rxjs"
 
 @Component({
   selector: 'app-character-input',
@@ -23,6 +24,8 @@ export class CharacterInputComponent implements OnInit {
   }
   @Output() nameEntered = new EventEmitter<string>();
 
+  private subscriptions = new Subscription();
+
   constructor(private marvelService: MarvelService) { }
 
   ngOnInit(): void {
@@ -34,17 +37,23 @@ export class CharacterInputComponent implements OnInit {
     this.hero = '';
 
     if (this.characterName !== '') {
-      this.marvelService.getCharacterThumbnail(this.characterName).subscribe(
+      this.subscriptions.add(this.marvelService.getCharacterThumbnail(this.characterName).subscribe(
         thumbnail => {
           this.hero = thumbnail;
 
           this.nameEntered.emit(this.characterName);
           this.disabled = true;
+
+          if (this.disabled) {
+            setTimeout(() => {
+              this.subscriptions.unsubscribe();
+            }, 1000);
+          }
         },
         error => {
           this.errorMessage = error;
           this.disabled = false;
-        })
+        }));
     }
   }
 }
