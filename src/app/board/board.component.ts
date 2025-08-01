@@ -61,7 +61,8 @@ export class BoardComponent implements OnInit {
         this.currentPlayer = this.switchCurrentPlayer();
       }
     } else {
-      alert("Movimento inválido 😤");
+      // alert("Movimento inválido 😤");
+      this.showToast("Movimento inválido 😤");
     }
   }
 
@@ -87,47 +88,54 @@ export class BoardComponent implements OnInit {
       return 'draw'; // Empate
     }
 
-    return null; // Nenhum vencedor ainda
+    return null;
   }
 
   endGame(result: string) {
     this.count++;
 
     if (result === 'draw') {
-      // Mantém lastWinner igual
       this.winner.emit({ play: 'draw', count: this.count, name: 'Empate 🤝' });
+      // Não altera lastWinner
     } else {
       const isPlayer1 = this.currentPlayer === this.player_1;
       const play = isPlayer1 ? 'player1' : 'player2';
       const name = isPlayer1 ? this.player1 : this.player2;
-      this.lastWinner = play;
 
-      this.winner.emit({ play: play, count: this.count, name });
+      this.lastWinner = play;
+      this.winner.emit({ play, count: this.count, name });
     }
 
     this.clearWinner.emit(true);
     this.resetGame();
   }
 
+
   resetGame() {
     this.player_1 = new Player(this.player1);
     this.player_2 = new Player(this.player2);
-    this.board = [null, null, null, null, null, null, null, null, null];
+
+    this.board = Array(9).fill(null);
     this.moveCounter = 0;
-
-    if (this.isFirstGame) {
-      this.currentPlayer = this.player_1;
-      this.isFirstGame = false;
-    } else {
-      if (this.lastWinner === 'player1') {
-        this.currentPlayer = this.player_1;
-      } else if (this.lastWinner === 'player2') {
-        this.currentPlayer = this.player_2;
-      } else {
-        this.currentPlayer = this.player_1; // fallback
-      }
-    }
-
     this.btnReset = false;
+
+    if (!this.lastWinner) {
+      this.currentPlayer = this.player_1; // Primeira partida
+    } else {
+      this.currentPlayer = this.lastWinner === 'player1' ? this.player_1 : this.player_2;
+    }
   }
+
+  toastVisible: boolean = false;
+  toastMessage: string = '';
+
+  showToast(message: string, duration: number = 3000): void {
+    this.toastMessage = message;
+    this.toastVisible = true;
+
+    setTimeout(() => {
+      this.toastVisible = false;
+    }, duration);
+  }
+
 }
