@@ -38,8 +38,8 @@
       </app-character-input>
     </div>
   </div>
-
-  <app-board *ngIf="player1 !== 'Player 1' && player2 !== 'Player 2' && player1 !== player2 &&  player1 !== '' && player2 !== ''"
+<!-- *ngIf="player1 !== 'Player 1' && player2 !== 'Player 2' && player1 !== player2 &&  player1 !== '' && player2 !== ''" -->
+  <app-board
     [player1]="player1"
     [player2]="player2"
     (winner)="onWin($event)"

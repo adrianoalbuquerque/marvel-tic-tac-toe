@@ -41,30 +41,10 @@ export class BoardComponent implements OnInit {
   board: (string | null)[] = [null, null, null, null, null, null, null, null, null];
   btnReset: boolean = false;
 
+  isFirstGame: boolean = true;
+  lastWinner: string = ''; // 'player1', 'player2'
+
   ngOnInit(): void { }
-
-  // move(index: number, player: Player) {
-  //   if (this.player_1.state[index] === 0 && this.player_2.state[index] === 0) {
-  //     this.clearWinner.emit(false);
-  //     player.state[index] = 1;
-  //     this.moveCounter++;
-  //     this.board[index] = this.currentPlayer === this.player_1 ? 'x' : 'o';
-  //     if (this.moveCounter > 4) {
-  //       this.checkWin(this.currentPlayer);
-  //     }
-  //     this.currentPlayer = this.switchCurrentPlayer();
-  //   } else {
-  //     if(this.board[8]) {
-  //       this.btnReset = true;
-  //       alert("Que pena, acabaram movimentos 😩");
-  //     } else {
-  //       alert("Movimento inválido 😤");
-  //     }
-  //   }
-  //   if(this.board[0] !== null) {
-
-  //   }
-  // }
 
   move(index: number, player: Player) {
     if (this.player_1.state[index] === 0 && this.player_2.state[index] === 0) {
@@ -72,6 +52,7 @@ export class BoardComponent implements OnInit {
       player.state[index] = 1;
       this.moveCounter++;
       this.board[index] = this.currentPlayer === this.player_1 ? 'x' : 'o';
+
       const winner = this.checkWinner();
 
       if (winner) {
@@ -80,49 +61,13 @@ export class BoardComponent implements OnInit {
         this.currentPlayer = this.switchCurrentPlayer();
       }
     } else {
-      // if (this.board[8]) {
-      //   this.btnReset = true;
-      //   alert("Que pena, acabaram movimentos 😩");
-      // } else {
-      //   alert("Movimento inválido 😤");
-      // }
-        alert("Movimento inválido 😤");
+      alert("Movimento inválido 😤");
     }
   }
 
   switchCurrentPlayer() {
     return this.currentPlayer === this.player_1 ? this.player_2 : this.player_1;
   }
-
-  // checkWin(player: Player) {
-  //   winStates.map(state => {
-  //     const res = state.map((currElement, index) => {
-  //       return player.state[index] * currElement;
-  //     })
-  //     if (state.toString().includes(res.toString())) {
-  //       this.endGame(player);
-  //     }
-  //   })
-  // }
-
-  // endGame(player: any) {
-  //   this.count++;
-  //   // alert(this.currentPlayer.name + ' é o vencedor 🎈🎉🐱‍💻');
-  //   this.player_1 = new Player(this.player1);
-  //   this.player_2 = new Player(this.player2);
-  //   this.board = [null, null, null, null, null, null, null, null, null];
-  //   this.moveCounter = 0;
-
-  //   if (this.currentPlayer.name === this.player1) {
-  //     this.winner.emit({ play: 'player1', count: this.count, name: player.name });
-  //     this.clearWinner.emit(true);
-  //   } else if (this.currentPlayer.name === this.player2) {
-  //     this.winner.emit({ play: 'player2', count: this.count, name: player.name });
-  //     this.clearWinner.emit(true);
-  //   } else {
-  //     this.winner.emit({ play: 'cant move', count: this.count, name: '' });
-  //   }
-  // }
 
   checkWinner(): string | null {
     const linesToCheck = [
@@ -134,7 +79,7 @@ export class BoardComponent implements OnInit {
     for (const line of linesToCheck) {
       const [a, b, c] = line;
       if (this.board[a] && this.board[a] === this.board[b] && this.board[a] === this.board[c]) {
-        return this.board[a]; // Retorna o jogador vencedor
+        return this.board[a]; // 'x' ou 'o'
       }
     }
 
@@ -145,21 +90,44 @@ export class BoardComponent implements OnInit {
     return null; // Nenhum vencedor ainda
   }
 
-  endGame(player: any) {
+  endGame(result: string) {
     this.count++;
+
+    if (result === 'draw') {
+      // Mantém lastWinner igual
+      this.winner.emit({ play: 'draw', count: this.count, name: 'Empate 🤝' });
+    } else {
+      const isPlayer1 = this.currentPlayer === this.player_1;
+      const play = isPlayer1 ? 'player1' : 'player2';
+      const name = isPlayer1 ? this.player1 : this.player2;
+      this.lastWinner = play;
+
+      this.winner.emit({ play: play, count: this.count, name });
+    }
+
+    this.clearWinner.emit(true);
+    this.resetGame();
+  }
+
+  resetGame() {
     this.player_1 = new Player(this.player1);
     this.player_2 = new Player(this.player2);
     this.board = [null, null, null, null, null, null, null, null, null];
     this.moveCounter = 0;
 
-    if (player === 'draw') {
-      this.winner.emit({ play: 'draw', count: this.count, name: 'Draw' });
+    if (this.isFirstGame) {
+      this.currentPlayer = this.player_1;
+      this.isFirstGame = false;
     } else {
-      const playerName = this.currentPlayer.name === this.player1 ? this.player1 : this.player2;
-      const play = this.currentPlayer.name === this.player1 ? "player1" : "player2";
-      this.winner.emit({ play: play, count: this.count, name: playerName });
+      if (this.lastWinner === 'player1') {
+        this.currentPlayer = this.player_1;
+      } else if (this.lastWinner === 'player2') {
+        this.currentPlayer = this.player_2;
+      } else {
+        this.currentPlayer = this.player_1; // fallback
+      }
     }
 
-    this.clearWinner.emit(true);
+    this.btnReset = false;
   }
 }
