@@ -28,6 +28,7 @@ h6 {
   background-color: #202020;
   color: white;
   font-weight: 600;
+  padding: 0 16px;
 }
 
 .toolbar img {
@@ -61,4 +62,43 @@ svg#clouds {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  margin-left: auto;
+
+  svg {
+    transition: transform 0.2s ease;
+  }
+
+  &:hover svg {
+    transform: scale(1.1);
+    fill: #ccc;
+  }
+}
+
+.app-footer {
+  text-align: center;
+  padding: 16px;
+  background-color: #202020;
+  color: white;
+  font-size: 14px;
+  margin-top: 32px;
+
+  a {
+    color: #e91e63;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

@@ -4,6 +4,6 @@ export const HERO_LIST = [
 ];
 
 export const VILLAIN_LIST = [
-  "Abomination", "Baron Zemo", "Doctor Doom", "Kang", "Kingpin",
+  "Abomination", "Ronan", "Doctor Doom", "Kang", "Kingpin",
   "Loki", "Red Skull", "Red Hulk", "Thanos", "Ultron"
 ];
