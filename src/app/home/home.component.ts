@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { HERO_LIST, VILLAIN_LIST } from '../shared/contants';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   player1: string = "Player 1";
   player2: string = "Player 2";
   winner: string = '';
@@ -19,9 +15,16 @@ export class HomeComponent implements OnInit {
 
   @Output() error = new EventEmitter<string>();
 
+  constructor() { }
+
+  ngOnInit(): void {
+    this.player1 = this.getRandomName(HERO_LIST);
+    this.player2 = this.getRandomName(VILLAIN_LIST);
+  }
+
   onWin(event: string) {
     this.winner = '';
-    if(event !== "") {
+    if (event !== "") {
       this.winner = event;
     }
   }
@@ -31,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   players(event: string, order: number) {
-    if(order === 1) {
+    if (order === 1) {
       this.player1 = event.toUpperCase();
     } else {
       this.player2 = event.toUpperCase();
@@ -49,5 +52,11 @@ export class HomeComponent implements OnInit {
     }
     this.error.emit(this.errorMessage);
   }
+
+  getRandomName(list: string[]): string {
+    const index = Math.floor(Math.random() * list.length);
+    return list[index];
+  }
+
 
 }

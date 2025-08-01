@@ -61,7 +61,6 @@ export class BoardComponent implements OnInit {
         this.currentPlayer = this.switchCurrentPlayer();
       }
     } else {
-      // alert("Movimento inválido 😤");
       this.showToast("Movimento inválido 😤");
     }
   }

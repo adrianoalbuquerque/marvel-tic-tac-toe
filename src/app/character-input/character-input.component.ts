@@ -15,6 +15,7 @@ export class CharacterInputComponent implements OnInit {
   disabled: boolean = false;
 
   @Input() label: string = "";
+  @Input() player: string = "";
   @Input('error') set setError(value: string) {
     this.errorMessage = value;
     if (value !== "") {

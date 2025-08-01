@@ -1,10 +1,15 @@
 <div>
   <label for="characterName">{{label}}:</label>
-  <input type="text" id="characterName" [(ngModel)]="characterName" (blur)="onInputChange()" [disabled]="disabled">
-  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <!-- <input type="text" id="characterName" [(ngModel)]="characterName" (blur)="onInputChange()" [disabled]="disabled">
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div> -->
 </div>
 
-<app-character-thumbnail
+<!-- <app-character-thumbnail
   [hero]="hero"
   [characterName]="characterName">
+</app-character-thumbnail>-->
+<app-character-thumbnail
+  [label]="label"
+  [hero]="player"
+  [characterName]="player">
 </app-character-thumbnail>

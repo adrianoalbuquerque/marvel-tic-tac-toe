@@ -17,6 +17,7 @@
     <div class="item">
       <app-character-input
         label="Player 1"
+        [player]="player1"
         (nameEntered)="players($event, 1)"
         [error]="errorMessage">
       </app-character-input>
@@ -33,6 +34,7 @@
     <div class="item">
       <app-character-input
         label="Player 2"
+        [player]="player2"
         (nameEntered)="players($event, 2)"
         [error]="errorMessage">
       </app-character-input>
