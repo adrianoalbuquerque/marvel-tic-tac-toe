@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit {
   winner: string = '';
   clearWinner: boolean = false;
 
+  dataAtual = new Date();
+  anoAtual = this.dataAtual.getFullYear();
+
   @Output() error = new EventEmitter<string>();
 
   constructor() { }

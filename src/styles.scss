@@ -1,4 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
 html {
-  background: url(https://developer.marvel.com/i/images/developers/account-bg.jpg) no-repeat center top #fff;
+  background: url('./assets/img/comic-style.avif') no-repeat center top #fff;
+  background-size: cover;
+  font-family: 'Comic Neue', cursive;
+  /* Fonte padrão do site */
+}
+
+h1, h2, h3
+.game-title {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 2px;
+  color: #f0f0f0;
+  text-shadow: 2px 2px 0px #000, 4px 4px 0px #ff0000;
+}
+
+button {
+  font-family: 'Bangers', cursive;
 }

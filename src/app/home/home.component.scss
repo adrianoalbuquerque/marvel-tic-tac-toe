@@ -16,6 +16,15 @@ h6 {
   margin: 8px 0;
 }
 
+.app-container {
+  min-height: 100vh; /* Garante altura total */
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1; /* Empurra o footer para baixo */
+}
 
 .toolbar {
   position: absolute;
@@ -29,10 +38,19 @@ h6 {
   color: white;
   font-weight: 600;
   padding: 0 16px;
+
 }
 
 .toolbar img {
   margin: 0 16px;
+}
+
+.toolbar span {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 2px;
+  color: #f0f0f0;
+  text-shadow: 2px 2px 0px #000, 4px 4px 0px #ff0000;
+  font-size: 26px;
 }
 
 .content {
@@ -91,7 +109,7 @@ svg#clouds {
   background-color: #202020;
   color: white;
   font-size: 14px;
-  margin-top: 32px;
+  margin: -8px;
 
   a {
     color: #e91e63;
@@ -100,5 +118,9 @@ svg#clouds {
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  p {
+    margin: 0;
   }
 }
