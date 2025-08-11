@@ -5,10 +5,11 @@
 }
 
 .item {
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
   border-radius: 12px;
+  box-shadow: 2px 4px 8px #000;
   #vs {
     margin-top: 60px;;
   }
